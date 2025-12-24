@@ -31,9 +31,9 @@ public class PRNG {
 			
 			if (evenBits > oddBits) {
 
-				curr = (double) evenBits / Math.max(oddBits, 1);  // avoid division by 0.
+				curr = (double) evenBits / Math.max(oddBits, 1);  
 			} else {
-			    curr = (double) oddBits / Math.max(evenBits, 1);  // avoid division by 0.
+			    curr = (double) oddBits / Math.max(evenBits, 1);  
 			}
 		}
 		
@@ -65,3 +65,4 @@ public class PRNG {
 		}
 	}
 }
+
