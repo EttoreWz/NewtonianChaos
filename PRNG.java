@@ -4,6 +4,9 @@ import java.math.*;
 public class PRNG {
 	private Double curr = null;
 	private ArrayList<Integer> list;
+	private ArrayList<Long> evenBitsList;
+	private ArrayList<Long> oddBitsList;
+
 	private double h = 1e-7;
 	
 	public PRNG (int run) {
@@ -22,9 +25,7 @@ public class PRNG {
 			long oddBits = 0;
 
 			for (int i = 0; i < 32; i++) {
-			    // Extract bit at position 2*i
 			    evenBits |= ((bits >> (2 * i)) & 1L) << i;
-			    // Extract bit at position 2*i + 1
 			    oddBits |= ((bits >> (2 * i + 1)) & 1L) << i;
 			}
 			
@@ -47,10 +48,18 @@ public class PRNG {
 		return list;
 	}
 	
+	public ArrayList<Long> getEvenBits() {
+		return evenBitsList;
+	}
+	
+	public ArrayList<Long> getOddBits() {
+		return oddBitsList;
+	}
+	
 	public static void main(String[] args) {
 		PRNG yes = new PRNG(2000);
 		ArrayList<Integer> l = yes.getList();
-		int length = l.size();W	
+		int length = l.size();	
 		for (int i=0; i<length; i++) {
 			System.out.println(l.get(i));
 		}
