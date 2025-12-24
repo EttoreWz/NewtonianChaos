@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Pipeline {
     public void uploadData(ArrayList<Integer> prngValues, ArrayList<Long> evenBits, ArrayList<Long> oddBits) {
-        String url = "jdbc:mysql://localhost:3306/your_database";
+        String url = "jdbc:mysql://localhost:3306/testDB";
         String user = "root";
-        String password = "your_password";
+        String password = "password";
         
         String query = "INSERT INTO newtonianData (PRNG) VALUES (?)";
 
@@ -18,10 +18,10 @@ public class Pipeline {
             }
 
             pstmt.executeBatch();
-            System.out.println("Pipeline Transfer Complete.");
-
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 }
